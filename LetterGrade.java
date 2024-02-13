@@ -10,23 +10,16 @@ public class LetterGrade {
 
     public static void main(String[] args) {
         
-        System.out.print("Enter Grade: ");
-        Scanner input = new Scanner(System.in);
-        int studentGrade = input.nextInt();
-        int total; // sum of grades entered by user
+        System.out.print("Enter Grade: ");// Prompt user to enter Grade
+        Scanner input = new Scanner(System.in); //imports Java.util.scanner
+        int studentGrade = input.nextInt(); // create scanner object set student grade by user input
+        int totalGrades = 0; // sum of grades entered by user
+        int numGrades = 0; // sum of grades entered by user
         int average; // average of grades
-        int gradeCounter = 1; // number of the grade to be entered next
-        
-        total = 0; // initialize total
-        total = total + studentGrade; // add grade to total
         studentGrade = studentGrade + 1; // increment counter by 1
         
-        average = total / 10; // integer division yields integer result
         
-        while ( gradeCounter <= 10 )//loop
-        {
-            
-         while ((studentGrade >= 0) && (studentGrade <= 100))// condition
+        while ( (studentGrade >= 0))//condition
          {
             if ((studentGrade >= 90) && (studentGrade <= 100)){
             System.out.println("A");
@@ -46,10 +39,11 @@ public class LetterGrade {
             
             System.out.print("Enter Grade: ");
             studentGrade = input.nextInt();
-            studentGrade++;
-            average = total / 10; // integer division yields integer result
-            System.out.println(average);
+            studentGrade++; // to repeat loop
+            totalGrades += studentGrade;
+            ++numGrades;//add another number of grade
          }
+        average = totalGrades / numGrades; // integer division yields integer result
+        System.out.printf("Average grade is: ", average);
        }
     }
-}
